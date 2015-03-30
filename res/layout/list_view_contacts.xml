@@ -1,0 +1,86 @@
+ Spinner city_spinner;
+        Spinner company_spinner;
+        Spinner food_spinner;
+        Spinner room_spinner;
+        String city;
+        String company;
+        String room;
+        String food;
+        if (v == this.bt) {
+
+
+            boolean isCompanyAny = false;
+            boolean isRoomAny = false;
+            boolean isFoodAny = false;
+
+            city_spinner = (Spinner)findViewById(R.id.spinner1);
+            company_spinner = (Spinner)findViewById(R.id.spinner2);
+            room_spinner = (Spinner)findViewById(R.id.spinner3);
+            food_spinner = (Spinner)findViewById(R.id.spinner4);
+            city = city_spinner.getSelectedItem().toString();
+            company = company_spinner.getSelectedItem().toString();
+            room = room_spinner.getSelectedItem().toString();
+            food = food_spinner.getSelectedItem().toString();
+            if(company.compareTo("Any") == 0)
+            {
+                isCompanyAny = true;
+            }
+            if(room.compareTo("Any") == 0)
+            {
+                isRoomAny = true;
+            }
+
+            if(food.compareTo("Any") == 0)
+            {
+                isFoodAny = true;
+            }
+
+
+
+            ArrayList<MyContact> returnValues = new ArrayList<MyContact>();
+            ArrayList<MyContact> parameterList = new ArrayList<MyContact>();
+//            GetContactsAsyncTask task = new GetContactsAsyncTask();
+//            try {
+//                returnValues = task.execute().get();
+//                Iterator<MyContact> iterator = returnValues.iterator();
+//                while (iterator.hasNext()) {
+//                    String FirstName;
+//                    String Username;
+//                    MyContact tempContact = iterator.next();
+//                    String tempCity = tempContact.city_spinner;
+//                    String tempCompany = tempContact.company_spinner;
+//                    String tempRoom = tempContact.room_spinner;
+//                    String tempFood = tempContact.food_spinner;
+//                    FirstName = tempContact.first_name;
+//                    Username = tempContact.email;
+//
+//
+//                    if ((city.compareTo(tempCity) == 0) && (company.compareTo(tempCompany) == 0) && (room.compareTo(tempRoom) == 0) && (food.compareTo(tempFood) == 0)) {
+//                        parameterList.add(tempContact);
+//                      } else {
+//                       /* AlertDialog alertDialog = new AlertDialog.Builder(Searchpage.this).create();
+//                        alertDialog.setTitle("Alert");
+//                        alertDialog.setMessage("Enter a valid Username and Password");
+//                        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+//                                new DialogInterface.OnClickListener() {
+//                                    public void onClick(DialogInterface dialog, int which) {
+//                                        dialog.dismiss();
+//                                    }
+//                                });
+//                        alertDialog.show();*/
+//                    }
+//
+//
+//                }
+//            }
+//
+//            catch (InterruptedException e) {
+//                e.printStackTrace();
+//            } catch (ExecutionException e) {
+//                e.printStackTrace();
+//            }
+                prefIntent = new Intent(this, Database.class);
+              //  prefIntent.putExtra("ParameterList", parameterList);
+    this.startActivity(prefIntent);
+        }
+    }
